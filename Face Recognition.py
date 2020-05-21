@@ -1,4 +1,4 @@
-#Program to Detect the Face and Recognise the Person based on the data from face-trainner.yml
+#Program to Detect the Face and Recognise the Person based on the data from face trainner.yml
 
 import cv2 #For Image processing 
 import numpy as np #For converting Images to Numerical array 
