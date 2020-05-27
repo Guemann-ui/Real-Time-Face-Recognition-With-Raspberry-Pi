@@ -1,4 +1,6 @@
-# Real-Time-Face-Recognition-With-Raspberry-Pi
+# Real-time Face Recognition Using OpenCV and Machine Learning on Raspberry Pi  
+                      #A beginner's guide
+
 In this project, we will learn how we can build our face Recognition using the open CV library on RaspberryPi. The tutorial involved two parts; first part is a Trainer program, which analyzed a set of photos of a particular person and create dataset, the second part is the Recognizer program, which detects a face and recognize the face and mention the person name.
 Firstable, we need to install some libraries:
 Installing the Required Packages
