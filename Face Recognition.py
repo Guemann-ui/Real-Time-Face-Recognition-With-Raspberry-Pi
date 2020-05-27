@@ -1,21 +1,21 @@
 #Program to Detect the Face and Recognise the Person based on the data from face trainner.yml
 
 import cv2 #For Image processing 
-import numpy as np #For converting Images to Numerical array 
+import numpy as np #convert Images to Numerical array 
 import os #To handle directories 
 from PIL import Image #Pillow lib for handling images 
 
-labels = ["Aswinth", "Elon Musk"] 
+labels = ["folder's name", "folser's name"] #write the name of the folder which contain your photos
 
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') #haarcascade_frontalface_default.xml used to detect the faces in images
 recognizer = cv2.createLBPHFaceRecognizer()
-recognizer.load("face-trainner.yml")
+recognizer.load("face_trainner.yml") #load yml file into the face recognition program
 
-cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
+cap = cv2.VideoCapture(0) #Get video feed from the Camera, '0'means we have one camera connected, if you used more than one, just replce "0" by "1"  
 
 while(True):
 
-    ret, img = cap.read() # Break video into frames 
+    ret, img = cap.read() # Break video into frames and capture frame by frame
     gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert Video frame to Greyscale
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5) #Recog. faces
     for (x, y, w, h) in faces:
@@ -28,7 +28,7 @@ while(True):
     		name = labels[id_] #Get the name from the List using ID number 
     		cv2.putText(img, name, (x,y), font, 1, (0,0,255), 2)
     	
-    	cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+    	cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2) # # Draw a rectangle around the faces
 
     cv2.imshow('Preview',img) #Display the Video
     if cv2.waitKey(20) & 0xFF == ord('q'):
